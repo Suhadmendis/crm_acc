@@ -181,6 +181,7 @@ function save_inv() {
     url = url + "&crnno=" + document.getElementById('txt_entno').value;
     url = url + "&cur=" + document.getElementById('currency').value;
     url = url + "&Rate=" + document.getElementById('txt_rate').value; 
+    url = url + "&txt_issue=" + document.getElementById('txt_issue').value; 
     url = url + "&remark=" + escape(document.getElementById('txt_remarks').value);
     url = url + "&crndate=" + document.getElementById('invdate').value;
     url = url + "&tmpno=" + document.getElementById('tmpno').value;
@@ -318,48 +319,100 @@ function pass_rec_result()
 
     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
     {
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("tmp_no");
-        opener.document.form1.tmpno.value = XMLAddress1[0].childNodes[0].nodeValue;
-        
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("C_REFNO");
-        opener.document.form1.txt_entno.value = XMLAddress1[0].childNodes[0].nodeValue;
-        
-     
+        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("stname");
+        var stname = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("C_DATE");
-        opener.document.form1.invdate.value = XMLAddress1[0].childNodes[0].nodeValue;
+        if (stname == "pc_iss") {
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("tmp_no");
+                opener.document.form1.tmpno.value = XMLAddress1[0].childNodes[0].nodeValue;
+                
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("C_REFNO");
+                opener.document.form1.txt_entno.value = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("txt_remarks");
-        opener.document.form1.txt_remarks.value = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("C_DATE");
+                opener.document.form1.invdate.value = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("currency");
-        opener.document.form1.currency.value = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("txt_remarks");
+                opener.document.form1.txt_remarks.value = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("txt_rate");
-        opener.document.form1.txt_rate.value = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("currency");
+                opener.document.form1.currency.value = XMLAddress1[0].childNodes[0].nodeValue;
 
-         
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("sales_table");
-        window.opener.document.getElementById('itemdetails').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("txt_rate");
+                opener.document.form1.txt_rate.value = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("sales_table1");
-        window.opener.document.getElementById('itemdetails1').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("sales_table");
+                window.opener.document.getElementById('itemdetails').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("subtot");
-        window.opener.document.getElementById('subtot').value = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("sales_table1");
+                window.opener.document.getElementById('itemdetails1').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("subtot1");
-        window.opener.document.getElementById('subtot1').value = XMLAddress1[0].childNodes[0].nodeValue;
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("subtot");
+                window.opener.document.getElementById('subtot').value = XMLAddress1[0].childNodes[0].nodeValue;
 
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("msg");
-        if (XMLAddress1[0].childNodes[0].nodeValue != "") {
-            window.opener.document.getElementById('msg_box').innerHTML = "<div class='alert alert-warning' role='alert'><span class='center-block'>" + XMLAddress1[0].childNodes[0].nodeValue + "</span></div>";
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("subtot1");
+                window.opener.document.getElementById('subtot1').value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("msg");
+                if (XMLAddress1[0].childNodes[0].nodeValue != "") {
+                    window.opener.document.getElementById('msg_box').innerHTML = "<div class='alert alert-warning' role='alert'><span class='center-block'>" + XMLAddress1[0].childNodes[0].nodeValue + "</span></div>";
+                }
+                 XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("filebox");
+                window.opener.document.getElementById('filebox').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
+
+                window.opener.document.getElementById('filup').style.visibility = "visible";
+
         }
-         XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("filebox");
-        window.opener.document.getElementById('filebox').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
 
-        window.opener.document.getElementById('filup').style.visibility = "visible";
+        if (stname == "pc_posting") {
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("tmp_no");
+                opener.document.form1.tmpno.value = XMLAddress1[0].childNodes[0].nodeValue;
+                
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("C_REFNO");
+                opener.document.form1.txt_entno.value = XMLAddress1[0].childNodes[0].nodeValue;
 
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("issue_ref");
+                opener.document.form1.txt_issue.value = XMLAddress1[0].childNodes[0].nodeValue;
+                
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("C_DATE");
+                opener.document.form1.invdate.value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("txt_remarks");
+                opener.document.form1.txt_remarks.value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("currency");
+                opener.document.form1.currency.value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("txt_rate");
+                opener.document.form1.txt_rate.value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("sales_table");
+                window.opener.document.getElementById('itemdetails').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("sales_table1");
+                window.opener.document.getElementById('itemdetails1').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("subtot");
+                window.opener.document.getElementById('subtot').value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("subtot1");
+                window.opener.document.getElementById('subtot1').value = XMLAddress1[0].childNodes[0].nodeValue;
+
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("msg");
+                if (XMLAddress1[0].childNodes[0].nodeValue != "") {
+                    window.opener.document.getElementById('msg_box').innerHTML = "<div class='alert alert-warning' role='alert'><span class='center-block'>" + XMLAddress1[0].childNodes[0].nodeValue + "</span></div>";
+                }
+                
+                XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("filebox");
+                window.opener.document.getElementById('filebox').innerHTML = XMLAddress1[0].childNodes[0].nodeValue;
+
+                window.opener.document.getElementById('filup').style.visibility = "visible";
+
+             
+
+        }
+    
         
 
         self.close();
@@ -418,6 +471,7 @@ function print_inv(cdata) {
 function setDirect() {
 
     document.getElementById('txt_issue').value = "";
+    // document.getElementById('di_en').value = "visible";
 
-    
+    document.getElementById('di_en').style.visibility = "visible";
 }

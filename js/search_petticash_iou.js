@@ -95,6 +95,9 @@ function passcusresult_quot()
             
             XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("str_customername4");
             opener.document.getElementById('settledate').value = XMLAddress1[0].childNodes[0].nodeValue;
+
+              XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("person");
+            opener.document.getElementById('person').value = XMLAddress1[0].childNodes[0].nodeValue;
         
         }
 

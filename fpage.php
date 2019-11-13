@@ -192,6 +192,21 @@
             </div>
         </div>   
 
+         <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-teal-gradient">
+                <div class="inner">
+                    <h3>Petty Cash Balance</h3>
+                    <h4>IOU Path</h4>
+                     
+                </div>
+                <div class="icon">
+                    <i class="ion ion-ios-paper"></i>
+                </div>
+                <a href="home.php?url=balance" target="_blank" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>   
+
 
 
 

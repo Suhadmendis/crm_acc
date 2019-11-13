@@ -110,6 +110,11 @@ if (isset($_GET['url'])) {
         $mtype="A";
     }
 
+     if ($_GET['url'] == "balance") {
+        include_once './petty_cash_balance.php';
+        $mtype="A";
+    }
+
     if ($_GET['url'] == "tb") {
         include_once './trailbal.php';
         

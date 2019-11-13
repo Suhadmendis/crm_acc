@@ -110,6 +110,7 @@ function save_inv() {
     url = url + "&uniq=" + document.getElementById("uniq").value;
     url = url + "&pdate=" + document.getElementById("pdate").value;
     url = url + "&reason=" + document.getElementById("reason").value;
+    url = url + "&person=" + document.getElementById("person").value;
     url = url + "&settledate=" + document.getElementById("settledate").value;
     
     

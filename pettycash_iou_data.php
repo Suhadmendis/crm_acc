@@ -44,8 +44,8 @@ if ($_GET["Command"] == "save_content") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $conn->beginTransaction();
 
-         $saveContentSql = "Insert into pettycash_iou(ref,amount,pdate,reason,settledate,uniq)values
-                 ('" .  $_GET['ref'] . "','" .  $_GET['amount'] . "','" .  $_GET['pdate'] . "','" .  $_GET['reason'] . "','" .  $_GET['settledate'] . "','" .  $_GET['uniq'] . "') ";
+         $saveContentSql = "Insert into pettycash_iou(ref,amount,pdate,reason,settledate,uniq,person)values
+                 ('" .  $_GET['ref'] . "','" .  $_GET['amount'] . "','" .  $_GET['pdate'] . "','" .  $_GET['reason'] . "','" .  $_GET['settledate'] . "','" .  $_GET['uniq'] . "','" .  $_GET['person'] . "') ";
          $result = $conn->query($saveContentSql);
 
          

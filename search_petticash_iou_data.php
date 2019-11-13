@@ -28,6 +28,7 @@ if ($_GET["Command"] == "pass_quot") {
         $ResponseXML .= "<str_customername2><![CDATA[" . $row['pdate'] . "]]></str_customername2>";
         $ResponseXML .= "<str_customername3><![CDATA[" . $row['reason'] . "]]></str_customername3>";
         $ResponseXML .= "<str_customername4><![CDATA[" . $row['settledate'] . "]]></str_customername4>";
+        $ResponseXML .= "<person><![CDATA[" . $row['person'] . "]]></person>";
 
         $ResponseXML .= "<stname><![CDATA[" . $_GET['stname'] . "]]></stname>";
     }

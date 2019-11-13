@@ -38,7 +38,7 @@ include './connection_sql.php';
                     </div>
 
                     <div class="col-sm-1">
-                        <a onfocus="this.blur()" onclick="NewWindow('search_pt_issue.php', 'mywin', '800', '700', 'yes', 'center');
+                        <a onfocus="this.blur()" onclick="NewWindow('search_pt_issue.php?stname=pc_iss', 'mywin', '800', '700', 'yes', 'center');
                                 return false" href="">
                             <input type="button" class="btn btn-default" value="..." id="searchcust" name="searchcust">
                         </a>

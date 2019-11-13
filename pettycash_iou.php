@@ -102,6 +102,16 @@ include './connection_sql.php';
                    
                 </div>
 
+                 <div class='form-group'></div>
+                <div class='form-group-sm'>
+                     <label class='col-sm-2' for='c_code'>Person</label>              
+                    <div class='col-sm-3'>
+                        <input type='text' placeholder='Person'  id='person' class='form-control Name  input-sm'>
+                    </div>
+                  
+                   
+                </div>
+
 
 
 

@@ -31,7 +31,6 @@ if ($_GET["Command"] == "new_inv") {
     $sql = "update tmpinvpara_acc set CRENO=CRENO+1";
     $result = $conn->query($sql);
 
-
     $ResponseXML = "";
     $ResponseXML .= "<salesdetails>";
     $ResponseXML .= "<invno><![CDATA[" . $invno . "]]></invno>";
@@ -231,9 +230,33 @@ if ($_GET["Command"] == "save_item") {
             $sql = "update dep_mas set LEDGER=LEDGER+1  where current_year = '" . $ayear . "' ";
             $conn->exec($sql);
         }
+
+        if ($_GET['txt_issue'] != "") {
+            
+         $sql = "Select * from ledger where L_REFNO ='" . $_GET['txt_issue'] . "'";
+                      echo $row['txt_issue'];
+                foreach ($conn->query($sql) as $row) {
+                  
+                  if ($row['L_FLAG1'] == "DEB") {
+                    $sql = "insert into ledger (l_refno, l_date, l_code, l_amount, l_flag, l_flag1,L_LMEM,Currency,rate,curamo,acyear) value
+                           ('" . $invno . "','" . $row['L_DATE'] . "','" . $row['L_CODE'] . "','" . $row['L_AMOUNT'] . "','" . $row['L_FLAG'] . "','CRE','" . $row['L_LMEM'] . "','" . $row['Currency'] . "','" . $row['rate'] . "','" . $row['curamo'] . "','" . $row['AcYear'] . "')";
+                    $conn->exec($sql);
+                  }
+                  if ($row['L_FLAG1'] == "CRE") {
+                   $sql = "insert into ledger (l_refno, l_date, l_code, l_amount, l_flag, l_flag1,L_LMEM,Currency,rate,curamo,acyear) value
+                           ('" . $invno . "','" . $row['L_DATE'] . "','" . $row['L_CODE'] . "','" . $row['L_AMOUNT'] . "','" . $row['L_FLAG'] . "','DEB','" . $row['L_LMEM'] . "','" . $row['Currency'] . "','" . $row['rate'] . "','" . $row['curamo'] . "','" . $row['AcYear'] . "')";
+                           $conn->exec($sql);
+                  }
+
+                }
+
+        }
+
+
+
         $remarks = $_GET['remark'];
-       $sql = "Insert into ledmas (REFNO, BDATE, type, DETAILS, Currency,rate,tmp_no) values
-        ('" . $invno . "', '" . $_GET["crndate"] . "','PCP','" . $remarks . "','" . $_GET["cur"] . "', '" . $_GET["Rate"] . "', '" . $_GET['tmpno'] . "') ";
+       $sql = "Insert into ledmas (REFNO, BDATE, type, DETAILS, Currency,rate,tmp_no,issue_ref) values
+        ('" . $invno . "', '" . $_GET["crndate"] . "','PCP','" . $remarks . "','" . $_GET["cur"] . "', '" . $_GET["Rate"] . "', '" . $_GET['tmpno'] . "', '" . $_GET['txt_issue'] . "') ";
         $conn->exec($sql);
 
 
@@ -318,17 +341,29 @@ if ($_GET["Command"] == "pass_rec") {
         $ResponseXML .= "<currency><![CDATA[" . $row["Currency"] . "]]></currency>";
         $ResponseXML .= "<txt_rate><![CDATA[" . $row["rate"] . "]]></txt_rate>";
         $ResponseXML .= "<tmp_no><![CDATA[" . $row["tmp_no"] . "]]></tmp_no>";
+        $ResponseXML .= "<issue_ref><![CDATA[" . $row["issue_ref"] . "]]></issue_ref>";
+        
+        $ResponseXML .= "<stname><![CDATA[" . $_GET["stname"] . "]]></stname>";
 
 
         $msg = "";
         if ($row['Cancel'] == "1") {
             $msg = "Cancelled";
         }
+
         $ResponseXML .= "<msg><![CDATA[" . $msg . "]]></msg>";
 
         $sql = "delete from tmp_che_data where  tmp_no='" . $row["tmp_no"] . "'";
          
         $result = $conn->query($sql);
+
+
+
+
+
+
+
+
 
 
         $sql = "Select C_CODE,C_NAME,curamo,NARA from view_jou where refno='" . $row["refno"] . "' AND flag='DEB'";

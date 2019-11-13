@@ -27,7 +27,41 @@ include './connection_sql.php';
                     <a onclick="sess_chk('cancel', 'crn');" class="btn btn-danger btn-sm">
                         <span class="fa fa-trash-o"></span> &nbsp; Cancel
                     </a>
+
+                     <a onclick="" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-sm">
+                        <span class="fa fa-trash-o"></span> &nbsp; Check GL
+                    </a>
                 </div>
+
+                <div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+
+            <div id="GL_table"></div>
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
                 <div id="msg_box"  class="span12 text-center"  ></div>
                 <input type="hidden"  id="tmpno" >
@@ -38,7 +72,7 @@ include './connection_sql.php';
                     </div>
 
                     <div class="col-sm-1">
-                        <a onfocus="this.blur()" onclick="NewWindow('search_pt_posting.php', 'mywin', '800', '700', 'yes', 'center');
+                        <a onfocus="this.blur()" onclick="NewWindow('search_pt_posting.php?stname=pc_posting', 'mywin', '800', '700', 'yes', 'center');
                                 return false" href="">
                             <input type="button" class="btn btn-default" value="..." id="searchcust" name="searchcust">
                         </a>
@@ -57,18 +91,18 @@ include './connection_sql.php';
                     </div>
 
                     <div class="col-sm-1">
-                        <a onfocus="this.blur()" onclick="NewWindow('search_pt_issue.php', 'mywin', '800', '700', 'yes', 'center');
+                        <a onfocus="this.blur()" onclick="NewWindow('search_pt_issue.php?stname=pc_posting', 'mywin', '800', '700', 'yes', 'center');
                                 return false" href="">
                             <input type="button" class="btn btn-default" value="..." id="searchcust" name="searchcust">
                         </a>
                          <a id="direct-btn" onfocus="this.blur()" onclick="setDirect();
-                                return false" href="">
+                                return false" >
                             <input type="button" class="btn btn-info" value="D" id="searchcust" name="searchcust">
                         </a>
                     </div>
 
                     <div class="col-sm-7" style="text-align: center;">
-                       <label id="di_en" style="font-size: 20px;" for="">Direct Enrty</label>
+                       <label id="di_en" style="font-size: 20px;" for="">Direct Entry</label>
                     </div>
                   
                   

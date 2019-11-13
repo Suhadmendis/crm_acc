@@ -326,6 +326,8 @@ if ($_GET["Command"] == "pass_rec") {
 
         $ResponseXML .= "<tmp_no><![CDATA[" . $row["tmp_no"] . "]]></tmp_no>";
 
+        $ResponseXML .= "<stname><![CDATA[" . $_GET["stname"] . "]]></stname>";
+
 
         $msg = "";
         if ($row['Cancel'] == "1") {
@@ -336,6 +338,77 @@ if ($_GET["Command"] == "pass_rec") {
         $sql = "delete from tmp_che_data where  tmp_no='" . $row["tmp_no"] . "'";
          
         $result = $conn->query($sql);
+
+
+
+        $ResponseXML .= "<GL_table><![CDATA[<table class=\"table\">
+               <thead>
+                 <tr>
+                   <th scope=\"col\">Code</th>
+                   <th scope=\"col\">Name</th>
+                   <th scope=\"col\">Des</th>
+                   <th scope=\"col\">Type</th>
+                   <th scope=\"col\">Amount</th>
+                 </tr>
+               </thead>
+               <tbody>";
+               $sql = "Select * from ledger where L_REFNO ='" . $row["refno"] . "'";
+               foreach ($conn->query($sql) as $row1) {
+            
+                
+ $sqlGL = "Select * from lcodes where C_CODE ='" . $row1['L_CODE'] . "'";
+ $result = $conn->query($sqlGL);
+    $rowGL = $result->fetch();
+   
+                if ($row1['L_FLAG1'] != "DEB") {
+                      $ResponseXML .= "  <tr>
+                       <th scope=\"row\">".$row1['L_CODE']."</th>
+                       <td>".$rowGL['C_NAME']."</td>
+                       <td>".$row1['L_LMEM']."</td>
+                       <td>DEB</td>
+                       <td>".number_format($row1['L_AMOUNT'],2)."</td>
+                     </tr>";       
+                }
+                 if ($row1['L_FLAG1'] != "CRE") {
+                      $ResponseXML .= "  <tr>
+                       <th scope=\"row\">".$row1['L_CODE']."</th>
+                       <td>".$rowGL['C_NAME']."</td>
+                       <td>".$row1['L_LMEM']."</td>
+                       <td>CRE</td>
+                       <td>".number_format($row1['L_AMOUNT'],2)."</td>
+                     </tr>";       
+                }
+             
+               }
+              $ResponseXML .= " </tbody>
+            </table>]]></GL_table>";
+
+  // $sql = "Select * from ledger where L_REFNO ='" . $row["refno"] . "'";
+        
+  //       $table_gl = " <table class=\"table\">
+  //             <thead>
+  //               <tr>
+  //                 <th scope=\"col\">Code</th>
+  //                 <th scope=\"col\">Name</th>
+  //                 <th scope=\"col\">Des</th>
+  //                 <th scope=\"col\">Type</th>
+  //                 <th scope=\"col\">Amount</th>
+  //               </tr>
+  //             </thead>
+  //             <tbody>"
+  //       foreach ($conn->query($sql) as $row1) {
+  //           $table_gl .= "  <tr>
+  //                 <th scope=\"row\">".$row1['L_CODE']."</th>
+  //                 <td>".$row1['L_LMEM']."</td>
+  //                 <td>".$row1['L_LMEM']."</td>
+  //                 <td>".$row1['L_FLAG1']."</td>
+  //                 <td>".$row1['L_AMOUNT']."</td>
+  //               </tr>";
+  //       }
+  //  $table_gl .= " </tbody>
+  //           </table>";
+
+  //                   $ResponseXML .= "<table><![CDATA[" . $table_gl . "]]></table>";           
 
 
         $sql = "Select C_CODE,C_NAME,curamo,NARA from view_jou where refno='" . $row["refno"] . "' AND flag='DEB'";
