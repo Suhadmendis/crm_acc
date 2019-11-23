@@ -90,13 +90,19 @@ if (isset($_GET['url'])) {
         include_once './Account_master.php';
     }
 
- if ($_GET['url'] == "petty_iou") {
+    if ($_GET['url'] == "petty_iou") {
         include_once './pettycash_iou.php';
     }
 
 
     if ($_GET['url'] == "jou") {
         include_once './Journal_Entry.php';
+        $mtype="A";
+    }
+
+
+    if ($_GET['url'] == "journal") {
+        include_once './Journal_En.php';
         $mtype="A";
     }
 

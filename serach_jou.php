@@ -45,7 +45,7 @@ session_start();
 
 
 
-                    $sql = "select REFNO, BDATE,DETAILS,ID from ledmas ORDER BY ID desc limit 50";
+                    $sql = "select REFNO, BDATE,DETAILS,ID from ledmas  where type = 'JOU' ORDER BY ID desc";
 
                     foreach ($conn->query($sql) as $row) {
                         $cuscode = $row["REFNO"];
