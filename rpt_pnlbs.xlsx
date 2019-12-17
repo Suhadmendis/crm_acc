@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+    <meta charset='UTF-8'><title>PNL</title><style>
+        @media print {
+            a[href]:after {
+                content: none !important;
+            }
+        }
+        a:link, a:visited {
+
+            text-decoration: none;
+            color:#000000;
+        }
+
+        .table1 {
+  border-collapse: collapse;
+}
+.table1, td, th {
+
+
+  padding: 4px;
+
+}
+
+
+
+
+.table1 td {
+
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+
+.table1 th {
+  font-weight: bold;
+
+
+   border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+}
+
+        a:hover {
+            text-decoration: underline;
+        }
+        body {
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 1.42857;
+        }
+
+        .right {
+            text-align: right;
+        }
+        .left {
+            text-align: left;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body> <h3>TDL HOLDINGS (PVT) LTD</h3><h4>Profit & Loss Statmenet For the Period : 2019-01-01    To: 2019-01-31</h4><table class='table table-bordered table1' style='width: 800px;'>
+
+      	<tr>
+        <th class='center'  style='width: 90px;'>Ledger</th>
+        <th class='center'  style='width: 400px;'>Account Description</th>
+	<th class='center' style='width: 90px;'>Closing Balance</th>
+        </tr><tr><th class='left' colspan='3'>Revenue</th></tr><tr><th></th><th class='left' colspan='2'>Operation Income</th></tr><tr><td>TDL-8500.005</td>
+		       <td>Management Fee - Crimson CS</td><td class='right'>250,000.00</td></tr><tr><td>TDL-8500.006</td>
+		       <td>Management Fee - Wings Logistics</td><td class='right'>350,000.00</td></tr><tr><td>TDL-8500.007</td>
+		       <td>Management Fee - TDL Logistics</td><td class='right'>150,000.00</td></tr><tr><th colspan='2'></th><th class='right'>750,000.00</th></tr><tr><th></th><th class='left' colspan='2'>Other Income</th></tr><tr><td>TDL-8000.001</td>
+		       <td>Project Revenue</td><td class='right'>49,362.50</td></tr><tr><td>TDL-8500.001</td>
+		       <td>Interest Income</td><td class='right'>7,662.47</td></tr><tr><th colspan='2'></th><th class='right'>57,024.97</th></tr><tr><th colspan='2'>Total Revenue</th><th class='right'>807,024.97</th></tr><tr><th class='left' colspan='3'>Expenses</th></tr><tr><th></th><th class='left' colspan='2'>Administration Expenses</th></tr><tr><td>TDL-9400.001</td>
+		       <td>Rent & Rates</td><td class='right'>(42,000.00)</td></tr><tr><td>TDL-9400.010</td>
+		       <td>Other Travelling Expenses</td><td class='right'>(12,500.00)</td></tr><tr><th colspan='2'></th><th class='right'>(54,500.00)</th></tr><tr><th></th><th class='left' colspan='2'>Finance Expenses</th></tr><tr><td>TDL-9900.001</td>
+		       <td>Bank Charges</td><td class='right'>(680.00)</td></tr><tr><th colspan='2'></th><th class='right'>(680.00)</th></tr><tr><th></th><th class='left' colspan='2'>Human Resource Expenses</th></tr><tr><td>TDL-9000.001</td>
+		       <td>Salaries and Wages</td><td class='right'>(244,125.00)</td></tr><tr><td>TDL-9000.003</td>
+		       <td>Staff Medical & Welfare</td><td class='right'>(97,408.46)</td></tr><tr><td>TDL-9000.006</td>
+		       <td>EPF/ETF Expenses</td><td class='right'>(36,618.75)</td></tr><tr><th colspan='2'></th><th class='right'>(378,152.21)</th></tr><tr><th></th><th class='left' colspan='2'>IT And Telecom Expenses</th></tr><tr><td>TDL-9700.001</td>
+		       <td>IT Services</td><td class='right'>0.00</td></tr><tr><th colspan='2'></th><th class='right'>0.00</th></tr><tr><th></th><th class='left' colspan='2'>Motor Vehicle Expenses</th></tr><tr><td>TDL-9200.002</td>
+		       <td>Motor Vehicle Maintenance</td><td class='right'>(75,000.00)</td></tr><tr><td>TDL-9200.005</td>
+		       <td>Motor Vehicle Rental</td><td class='right'>(50,000.00)</td></tr><tr><th colspan='2'></th><th class='right'>(125,000.00)</th></tr><tr><th></th><th class='left' colspan='2'>Professional Expenses</th></tr><tr><td>TDL-9300.002</td>
+		       <td>Secretarial Fee</td><td class='right'>(10,530.00)</td></tr><tr><th colspan='2'></th><th class='right'>(10,530.00)</th></tr><tr><th colspan='2'>Total Expenses</th><th class='right'>(568,862.21)</th></tr><tr><th  class='left' colspan=2>Current Year Income/Loss</th>
+
+
+		<th  class='right'>238,162.76</th></tr></table>
+
+</body>
+</html>
